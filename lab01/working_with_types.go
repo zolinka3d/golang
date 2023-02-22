@@ -4,26 +4,23 @@ package main
 
 import (
 	"fmt"
-	"math/rand"
+	"reflect"
+	"strconv"
 )
 
 func main() {
-	random_int := rand.Intn(1000)
-	fmt.Println(random_int)
 
-	for {
-		var a int
-		fmt.Println("Zgadnij liczbę: ")
-		fmt.Scan(&a)
+	var a string
+	fmt.Println("Napisz liczbę: ")
+	fmt.Scan(&a)
 
-		if a < random_int {
-			fmt.Println("za mała")
-		} else if a > random_int {
-			fmt.Println("za duża")
-		}
-		if a == random_int {
-			fmt.Println("gratulację :)")
-			break
-		}
+	fmt.Println("Type of variable1:", reflect.TypeOf(a))
+
+	aNew, err := strconv.Atoi(a)
+
+	if err != nil {
+		fmt.Println("Error during conversion")
+		return
 	}
+	fmt.Println("Type of variable2:", reflect.TypeOf(aNew))
 }
