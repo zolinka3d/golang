@@ -11,8 +11,8 @@ func main() {
 	random_int := rand.Intn(1000)
 	fmt.Println(random_int)
 
-	var a int = -1
-	for a != random_int {
+	for {
+		var a int
 		fmt.Println("Zgadnij liczbę: ")
 		fmt.Scan(&a)
 
@@ -21,6 +21,9 @@ func main() {
 		} else if a > random_int {
 			fmt.Println("liczba zgadywana jest mniejsza")
 		}
+		if a == random_int {
+			fmt.Println("brawo zgadłeś :)")
+			break
+		}
 	}
-	fmt.Println("brawo zgadłeś :)")
 }
