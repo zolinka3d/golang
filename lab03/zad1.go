@@ -2,17 +2,20 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"os"
+	"strconv"
 )
 
 func main() {
-	max()
+	//max()
 	zad3()
+
 }
 
 func algo(a int, acc int) int {
-	if a == 1 {
+	if a <= 0 {
+		return 1
+	} else if a == 1 {
 		return acc + 1
 	} else if a%2 == 0 {
 		return algo(a/2, acc+1)
@@ -54,16 +57,23 @@ func zad2() {
 func zad3() {
 	f, err := os.Create("dane.txt")
 	if err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
 	defer f.Close()
 
-	for i := 0; i < 100000; i++ {
+	for i := 1; i < 100_000; i++ {
 		number := algo(i, 0)
-		_, err2 := f.WriteString(fmt.Sprintf("%d\n", number))
+		str := strconv.Itoa(i) + " " + strconv.Itoa(number) + "\n"
+		_, err2 := f.WriteString(str)
 		if err2 != nil {
-			log.Fatal(err2)
+			panic(err2)
 		}
 	}
+
 	fmt.Println(f.Name())
+
+}
+
+func zad4() {
+
 }
