@@ -1,0 +1,5 @@
+# jakis komentarz
+[ ] wyprowadz psa
+[x] spotkaj się z kamilem
+[-] zdać politechnike
+[+] pouczyć się golanga
