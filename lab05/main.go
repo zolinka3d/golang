@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"log"
 	"os"
@@ -10,7 +11,11 @@ import (
 func main() {
 	fileContent := readTodo("todo.txt")
 	// fmt.Print(fileContent)
-	printLines(fileContent)
+	nocolor := flag.Bool("nocolor", false, "Disable colored output")
+	flag.Parse()
+	fmt.Println(*nocolor)
+
+	printLines(fileContent, *nocolor)
 }
 
 func readTodo(nameOfFile string) string {
@@ -25,10 +30,15 @@ func readTodo(nameOfFile string) string {
 	return string(dat)
 }
 
-func printLines(fileContent string) {
+func printLines(fileContent string, nocolor bool) {
 	arrayOfLines := strings.Split(fileContent, "\n")
 
 	for _, el := range arrayOfLines {
+		if nocolor {
+			fmt.Println(el)
+			continue
+		}
+
 		if len(el) < 3 {
 			continue
 		} else if el[0] == '#' {
@@ -41,6 +51,8 @@ func printLines(fileContent string) {
 				fmt.Println("\u001b[31m", el, "\u001b[0m")
 			case '+':
 				fmt.Println("\u001b[33m", el, "\u001b[0m")
+			case ' ':
+				fmt.Println("\u001b[34m", el, "\u001b[0m")
 			}
 		}
 

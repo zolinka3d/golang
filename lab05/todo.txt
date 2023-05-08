@@ -3,3 +3,5 @@
 [x] spotkaj się z kamilem
 [-] zdać politechnike
 [+] pouczyć się golanga
+[ ] zrobić pranie
+[ ] zrobić zakupy
