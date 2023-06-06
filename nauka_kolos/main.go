@@ -56,10 +56,10 @@ func main() {
 	fmt.Println(slice)
 
 	// bez powtórzeń obok siebie
-	exampleSlice3 := []int{1, 2, 3, 3, 4, 5, 3}
-	var exampleSlice33 []int
-	var slice3 []int
-	for i := 0; i < len(exampleSlice); i++ {
+	// exampleSlice3 := []int{1, 2, 3, 3, 4, 5, 3}
+	// var exampleSlice33 []int
+	// var slice3 []int
+	// for i := 0; i < len(exampleSlice); i++ {
 
-	}
+	// }
 }
